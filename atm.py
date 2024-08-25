@@ -36,8 +36,21 @@ def show_get_cashe_screen():
 
 
 def show_user_authorization_screen():
-    pass
+    user_pin = input("ВВЕДИТЕ ВАШ PIN-КОД:>")
+    myfile = open("pass.txt", "r")
+    for i in myfile:
+        pin = str(i)
+    myfile.close()
+    if pin == user_pin:
+        return True
+    else:
+        return False
 
+def user_authoriation():
+    if show_user_authorization_screen():
+        print("TRUE")
+    else:
+        print("FALSE")
 
 def show_check_balance_screen():
     pass
@@ -48,7 +61,6 @@ def show_exit_screen():
     input()
     clear_screen()
 
-
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -57,5 +69,4 @@ def clear_screen():
 show_main_screen()
 show_get_cashe_screen()
 show_exit_screen()
-
 
